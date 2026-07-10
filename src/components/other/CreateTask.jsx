@@ -42,66 +42,102 @@ const CreateTask = () => {
         setAsignTo('')
         setTaskDate('')
         setTaskDescription('')
-
     }
 
     return (
-        <div className='p-5 bg-[#1c1c1c] mt-5 rounded'>
-            <form onSubmit={(e) => {
-                submitHandler(e)
-            }}
-                className='flex flex-wrap w-full items-start justify-between'
+        <div className="mt-8 rounded-2xl bg-[#1f2937] p-8 shadow-xl">
+
+            <h2 className="text-2xl font-bold text-white mb-8">
+                Create New Task
+            </h2>
+
+            <form
+                onSubmit={submitHandler}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-10"
             >
-                <div className='w-1/2'>
+
+                <div className="space-y-5">
+
                     <div>
-                        <h3 className='text-sm text-gray-300 mb-0.5'>Task Title</h3>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                            Task Title
+                        </label>
+
                         <input
                             value={taskTitle}
-                            onChange={(e) => {
-                                setTaskTitle(e.target.value)
-                            }}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="text" placeholder='Make a UI design'
+                            onChange={(e) => setTaskTitle(e.target.value)}
+                            type="text"
+                            placeholder="Enter task title"
+                            className="w-full rounded-xl border border-gray-600 bg-[#111827] px-4 py-3 text-white outline-none transition focus:border-emerald-500"
                         />
                     </div>
+
                     <div>
-                        <h3 className='text-sm text-gray-300 mb-0.5'>Date</h3>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                            Deadline
+                        </label>
+
                         <input
                             value={taskDate}
-                            onChange={(e) => {
-                                setTaskDate(e.target.value)
-                            }}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="date" />
+                            onChange={(e) => setTaskDate(e.target.value)}
+                            type="date"
+                            className="w-full rounded-xl border border-gray-600 bg-[#111827] px-4 py-3 text-white outline-none transition focus:border-emerald-500"
+                        />
                     </div>
+
                     <div>
-                        <h3 className='text-sm text-gray-300 mb-0.5'>Asign to</h3>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                            Assign To
+                        </label>
+
                         <input
                             value={asignTo}
-                            onChange={(e) => {
-                                setAsignTo(e.target.value)
-                            }}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="text" placeholder='employee name' />
+                            onChange={(e) => setAsignTo(e.target.value)}
+                            type="text"
+                            placeholder="Employee Name"
+                            className="w-full rounded-xl border border-gray-600 bg-[#111827] px-4 py-3 text-white outline-none transition focus:border-emerald-500"
+                        />
                     </div>
+
                     <div>
-                        <h3 className='text-sm text-gray-300 mb-0.5'>Category</h3>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                            Category
+                        </label>
+
                         <input
                             value={category}
-                            onChange={(e) => {
-                                setCategory(e.target.value)
-                            }}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4' type="text" placeholder='design, dev, etc' />
+                            onChange={(e) => setCategory(e.target.value)}
+                            type="text"
+                            placeholder="Design, Development..."
+                            className="w-full rounded-xl border border-gray-600 bg-[#111827] px-4 py-3 text-white outline-none transition focus:border-emerald-500"
+                        />
                     </div>
+
                 </div>
 
-                <div className='w-2/5 flex flex-col items-start'>
-                    <h3 className='text-sm text-gray-300 mb-0.5'>Description</h3>
-                    <textarea value={taskDescription}
-                        onChange={(e) => {
-                            setTaskDescription(e.target.value)
-                        }} className='w-full h-44 text-sm py-2 px-4 rounded outline-none bg-transparent border-[1px] border-gray-400' name="" id=""></textarea>
-                    <button className='bg-emerald-500 py-3 hover:bg-emerald-600 px-5 rounded text-sm mt-4 w-full'>Create Task</button>
+                <div className="flex flex-col">
+
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Description
+                    </label>
+
+                    <textarea
+                        value={taskDescription}
+                        onChange={(e) => setTaskDescription(e.target.value)}
+                        className="h-56 resize-none rounded-xl border border-gray-600 bg-[#111827] px-4 py-3 text-white outline-none transition focus:border-emerald-500"
+                        placeholder="Write task description..."
+                    />
+
+                    <button
+                        className="mt-6 rounded-xl bg-emerald-600 py-3 font-semibold text-white transition duration-300 hover:bg-emerald-700 hover:-translate-y-0.5 active:scale-95"
+                    >
+                        Create Task
+                    </button>
+
                 </div>
 
             </form>
+
         </div>
     )
 }
